@@ -24,7 +24,7 @@ def get_exchange_rates(base_currency: str):
 
 @dp.message_handler(commands=['start'])
 async def start_command(message: types.Message):
-    await message.reply("Привет! Я бот-конвертер валют.\n\nИспользуй /rate USD, чтобы узнать курсы валют.\n\nИспользуй /convert 1 USD RUB, чтобы конвертировать сумму одной валюты в другую")
+    await message.reply("Привет! Я бот-конвертер валют.\n\nИспользуй /rate USD, чтобы узнать курсы валют.\n\nИспользуй /convert 1 USD RUB, чтобы конвертировать сумму одной валюты в другую!")
 
 @dp.message_handler(commands=['rate'])
 async def get_rate(message: types.Message):
