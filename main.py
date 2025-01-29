@@ -24,19 +24,19 @@ def get_exchange_rates(base_currency: str):
 
 @dp.message_handler(commands=['start'])
 async def start_command(message: types.Message):
-    await message.reply("Привет! Я бот-конвертер валют. Используй /rate USD, чтобы узнать курсы валют.")
+    await message.reply("Привет! Я бот-конвертер валют.\n\nИспользуй /rate USD, чтобы узнать курсы валют.\n\nИспользуй /convert 1 USD RUB, чтобы конвертировать сумму одной валюты в другую")
 
 @dp.message_handler(commands=['rate'])
 async def get_rate(message: types.Message):
     try:
         args = message.text.split()
         if len(args) != 2:
-            await message.reply("Использование: /rate <КОД_ВАЛЮТЫ>, например: /rate USD")
+            await message.reply("Использование: \n\n/rate <КОД_ВАЛЮТЫ>, например: /rate USD\n\n")
             return
         base_currency = args[1].upper()
         rates = get_exchange_rates(base_currency)
         if rates:
-            rates_text = "\n".join([f"{key}: {value}" for key, value in list(rates.items())[:10]])
+            rates_text = "\n".join([f"{key}: {value}" for key, value in list(rates.items())])
             await message.reply(f"Курсы валют для {base_currency}:\n{rates_text}")
         else:
             await message.reply("Ошибка получения курсов валют.")
