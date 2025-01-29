@@ -31,7 +31,7 @@ async def get_rate(message: types.Message):
     try:
         args = message.text.split()
         if len(args) != 2:
-            await message.reply("Использование: \n\n/rate <КОД_ВАЛЮТЫ>, например: /rate USD\n\n")
+            await message.reply("Использование: \n\n/rate <КОД_ВАЛЮТЫ>, например: /rate USD")
             return
         base_currency = args[1].upper()
         rates = get_exchange_rates(base_currency)
